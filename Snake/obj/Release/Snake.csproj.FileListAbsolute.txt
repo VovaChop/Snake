@@ -1,0 +1,6 @@
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\bin\Release\Snake.exe.config
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\bin\Release\Snake.exe
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\bin\Release\Snake.pdb
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\obj\Release\Snake.csprojResolveAssemblyReference.cache
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\obj\Release\Snake.exe
+c:\users\vova\documents\visual studio 2015\Projects\Snake\Snake\obj\Release\Snake.pdb
