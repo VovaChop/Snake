@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Snake
@@ -10,25 +11,44 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            int x1 = 1;
-            int y1 = 1;
-            char sym1 = '*';
+            Console.SetBufferSize(80, 25);
 
-            Draw(x1, y1, sym1);
+            //Borders of field
+            HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
+            HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
+            VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
+            VerticalLine rightLine = new VerticalLine(0, 24, 78, '+');
 
-            int x2 = 4;
-            int y2 = 5;
-            char sym2 = '#';
+            upLine.Drow();
+            downLine.Drow();
+            leftLine.Drow();
+            rightLine.Drow();
 
-            Draw(x2, y2, sym2);
+            Point p = new Point(4, 5, '*');
+            Snake snake = new Snake(p, 5, Direction.RIGHT);
+            snake.Drow();
+
+            while (true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    if (key.Key == ConsoleKey.LeftArrow)
+                        snake.direction = Direction.LEFT;
+                    else if (key.Key == ConsoleKey.RightArrow)
+                        snake.direction = Direction.RIGHT;
+                    else if (key.Key == ConsoleKey.DownArrow)
+                        snake.direction = Direction.DOWN;
+                    else if (key.Key == ConsoleKey.UpArrow)
+                        snake.direction = Direction.UP;
+                }
+                Thread.Sleep(100);
+                snake.Move();
+            }
 
             Console.ReadLine();
         }
 
-        static void Draw(int x, int y, char sym)
-        {
-            Console.SetCursorPosition(x, y);
-            Console.Write(sym);
-        }
+        
     }
 }
